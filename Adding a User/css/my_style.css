@@ -1,0 +1,28 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#wrapper{
+    margin:0px auto;
+    width: 600px;
+    padding-top: 50px;
+}
+label{
+    display:block;
+    text-align:right;
+}
+form{
+    width:300px;
+}
+#submit{
+    margin: 30px 50%;
+}
+table{
+    border-collapse: collapse;
+}
+thead, tr{
+    border:solid black 2px;
+}
+th, td{
+    padding:20px;
+}

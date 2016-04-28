@@ -1,0 +1,162 @@
+
+().on
+
+ <script>
+  $(document).ready(function(){
+   $('button').click(function(){
+    $('div').append('<h3>I am a new button</h3>');
+   });
+   $('div.a').on('mouseover', 'h3', function(){ 
+    $(this).css('color', 'pink');
+   });
+  });
+ </script>
+ <body>
+  <button>Click me for new content!&lt;/button>
+  <div class='a'>
+   <h3>I am old content</h3>
+  </div>
+  <div class='b'>
+   <h3>I am old content</h3>
+  </div>
+ </body>
+
+ ________________________________________________________________________________________
+
+
+Callbacks
+
+<script>
+    function attach_h3_handlers(){
+        $('h3').click(function(){alert('you clicked me!');});
+    };
+    $(document).ready(function(){
+        attach_h3_handlers();
+        $('button').click(function(){
+            $('div').append('<h3>I am a dynamically generated h3 </h3>');
+            attach_h3_handlers();
+        )};
+    });
+</script>
+<body>
+    <div>
+        <button>Click me to add a new h3 tag!</button>
+        <h3> click me to see a message! </h3>
+    </div>
+</body>
+
+
+________________________________________________________________________________________
+
+Forms
+(using .submit, return false, and .serialize)
+
+
+
+.submit - this can be used in 2 different ways, either to submit an actual HTML form, or as an event handler.
+
+$('form').submit(function(){alert('you submitted me!');});
+<!-- .submit function acts as an event handler here -->
+ $(h4).click(function(){
+     $('form').submit();
+ })
+<!-- .submit acts as a submitter of the actual form, and not as a simple handler in this instance. -->
+
+----------------------------------------------------------------------
+
+Return False
+(This stops a form from being submitted in this instance)
+$('form').submit(function(){
+    return false;
+});
+
+---------------------------------------------------------------------
+
+.serialize
+(encodes a set of form elements into a computer-friendly array, transforming user inputs into a format that can be easily passed to a back-end process and used by a non-human entity.)
+
+$(form).submit(function(){
+	console.log($(this).serialize());
+	return false;
+})
+--------------------------------------------------------------------
+
+Traversing
+(ability to refer to elements by the other elements around them)
+
+There are 3 relationships when referring to traversing: .children(), .parent(), .siblings()
+
+HTML Body Content Example: 
+<div id='myDiv'>
+    <p>Here is a paragraph.  It is a beautiful paragraph.</p>
+    <h3>Michael Choi</h3>
+    <h3>John Supsupin</h3>
+    <h3>Trey Villafane</h3>
+</div>
+
+.children()
+(The jQuery method .children() is a way of targeting any items contained within the selected item.) 
+
+$('#myDiv').children().css('background-color', 'green');
+$('#myDiv').children('h3').css('background-color', 'green');
+
+--------------
+
+.parent()
+$('h3, p').click(function(){
+    $(this).parent().append('<h2>HOWDY CODING DOJO!</h2>');
+})
+<!-- This adds an h2 tag inside the div, because the div is the parent element to the h3 and p elements.  -->
+
+--------------
+
+.siblings()
+   
+$('h3, p').click(function(){
+   $(this).siblings().hide();
+})
+<!-- If an h3 or a p is clicked, everything else, except for the thing clicked is hidden. -->
+--------------
+
+Chaining
+
+ <div>
+    <button>Click me for crazy things!</button>
+    <ul>
+        <li><h3>Tiger Woods</h3></li>
+        <li><h3>Phil Mickelson</h3></li>
+        <li><h3>Ben Hogan</h3></li>
+        <li><h3>Jack Nicklaus</h3></li>
+        <li><h3>Gary Player</h3></li>
+        <li><h3>Rory Mcilroy</h3></li>
+    </ul>
+ </div>
+
+  $('button').click(function(){
+     $(this).siblings().children().children().text('Michael Choi was here!')
+ })
+
+<!--  The div is the parent
+ The button is the div's child, but button also has a sibling, called ul.
+ Ul is a child of div, a sibiling of button, but it also has a child... li
+ LI has multiple siblings, also called li, and each li also has a child, etc... -->
+
+So this function is saying, that when a button is clicked, the button (aka this) has sibling ul that we will first refrence.
+
+Button's sibling ul, down to it's child, li, down to its child h3, will be replaced with ('Michael Choi was here!')
+This applies for all of the li's that are the children of ul.... 
+
+A more simplistic meaning: all of the golf player's names above will be replaced with Michael Choi was here once the button is clicked. 
+
+
+
+
+STOP PROPAGATION COMMAND- 
+
+
+event.stopPropagation()
+this stops something from propagating from say a parent to a child, etc. 
+
+Example of code: 
+$('.middle_box').click(function(event){
+event.stopPropagation();

@@ -1,0 +1,23 @@
+*{
+	margin:0px;
+	padding:0px	
+}
+#container{
+	width:800px;
+	margin:0px auto;
+}
+h1{
+	text-align: center;
+}
+h3{
+	text-align: center;
+	margin-bottom:20px;
+}
+#ninja_parts{ 
+ 	width: 369px; 
+ 	height: 108px; 
+ 	border: none;
+ }
+ img{
+ 	margin:0px 0px 5px 200px;
+ }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+    	<meta charset="utf-8"/>
+    	<title>Sortable Ninjas are Sortable!</title>
+    	<meta name="description" content="Where you go to sort some ninja parts"/>
+   		<link rel="stylesheet" href="Style/Sortable_Ninja_CSS.css">
+   		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   		<script type="text/javascript">
+   			$(document).ready(function(){
+   				$(function() {
+   					$("img").draggable();
+ 				});
+   			});
+   		</script>
+	</head>
+	<body>
+		<div id='container'>
+			<h1>Sortable Ninja</h1>
+			<h3>Sort the ninja! Drag and drop</h3>
+			<div id="ninja_parts" class="ui-widget-content">
+					<img src="Images/sort1.png" alt="head img">
+					<img src="Images/sort5.png" alt="toes img">
+					<img src="Images/sort4.png" alt="hat img">
+					<img src="Images/sort2.png" alt="hat thing img">
+					<img src="Images/sort3.png" alt="shoulders img">
+			</div>
+		</div>
+	</body>
+</html>
